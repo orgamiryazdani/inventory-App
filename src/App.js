@@ -13,6 +13,7 @@ function App() {
   const [sort, setSort] = useState("latest");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [searchValue, setSearchValue] = useState("");
+  const [isShow, setIsShow] = useState(false);
 
   useEffect(() => {
     let result = products;
@@ -82,8 +83,17 @@ function App() {
       <div className="bg-slate-800 min-h-screen">
         <NavBar products={products} />
         <div className="container max-w-screen-sm mx-auto p-4">
-          <CategoryForm setCategories={setCategories} />
-          <ProductsForm categories={categories} setProducts={setProducts} />
+          <CategoryForm
+            setCategories={setCategories}
+            isShow={isShow}
+            setIsShow={setIsShow}
+          />
+          <ProductsForm
+            categories={categories}
+            setProducts={setProducts}
+            isShow={isShow}
+            setIsShow={setIsShow}
+          />
           <Filter
             sort={sort}
             categories={categories}

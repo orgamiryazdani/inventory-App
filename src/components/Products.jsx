@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProductsForm = ({ categories, setProducts }) => {
+const ProductsForm = ({ categories, setProducts, setIsShow }) => {
   const [productsFormData, setProductsFormData] = useState({
     title: "",
     quantity: '',
@@ -14,6 +14,11 @@ const ProductsForm = ({ categories, setProducts }) => {
 
   const addNewProduct = (e) => {
     e.preventDefault();
+    if (productsFormData.categoryId === '') {
+      alert("pleas select option")
+      setIsShow(true);
+      return;
+    }
     const newProduct = {
       ...productsFormData,
       createdAt: new Date().toISOString(),
