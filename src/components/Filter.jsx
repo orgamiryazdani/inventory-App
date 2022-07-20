@@ -25,7 +25,7 @@ const Filter = ({
         />
       </div>
       <div className="flex items-center justify-between mb-6">
-        <label htmlFor="sort-products" className="text-slate-500 text-lg">z
+        <label htmlFor="sort-products" className="text-slate-500 text-lg">
           sort
         </label>
         <select
