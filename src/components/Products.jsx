@@ -15,7 +15,7 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
   const addNewProduct = (e) => {
     e.preventDefault();
     if (productsFormData.categoryId === '') {
-      alert("pleas select option")
+      alert("please select option")
       setIsShow(true);
       return;
     }
