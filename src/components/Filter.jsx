@@ -13,7 +13,7 @@ const Filter = ({
     <div>
       <div className="flex items-center justify-between mb-6">
         <label htmlFor="search-input" className="text-slate-500 text-lg">
-          search
+          جستجو
         </label>
         <input
           type="text"
@@ -26,7 +26,7 @@ const Filter = ({
       </div>
       <div className="flex items-center justify-between mb-6">
         <label htmlFor="sort-products" className="text-slate-500 text-lg">
-          sort
+          مرتب سازی
         </label>
         <select
           name="sort-products"
@@ -36,22 +36,22 @@ const Filter = ({
           onChange={onSort}
         >
           <option className="bg-slate-500 text-slate-300" value="">
-            select a category
+            یک دسته بندی را انتخاب کنید
           </option>
           <option
             className="bg-slate-500 text-slate-300"
             value="latest"
           >
-            latest
+            آخرین
           </option>
           <option className="bg-slate-500 text-slate-300" value="earliest">
-            earliest
+            اولین
           </option>
         </select>
       </div>
       <div className="flex items-center justify-between mb-6">
         <label htmlFor="sort-products" className="text-slate-500 text-lg">
-          category
+          دسته بندی
         </label>
         <select
           name="products"
@@ -61,7 +61,7 @@ const Filter = ({
           onChange={onSelectCategory}>
           <option className="bg-slate-500 text-slate-300" value=""
           >
-            All
+            همه
           </option>
           {categories.map((category) => {
             return (

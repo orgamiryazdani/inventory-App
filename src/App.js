@@ -5,6 +5,8 @@ import Filter from "./components/Filter";
 import NavBar from "./components/NavBar";
 import ProductList from "./components/ProductList";
 import ProductsForm from "./components/Products";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -80,6 +82,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer />
       <div className="bg-slate-800 min-h-screen">
         <NavBar products={products} />
         <div className="container max-w-screen-sm mx-auto p-4">

@@ -14,7 +14,7 @@ const ProductList = ({ products, categories, setProducts }) => {
 
   return (
     <div>
-      <h2 className="text-slate-400">ProductList</h2>
+      <h2 className="text-slate-400">لیست محصولات</h2>
       <div className="overflow-x-auto">
         {products.map((product) => {
           return (
@@ -38,7 +38,7 @@ const ProductList = ({ products, categories, setProducts }) => {
                   className="delete-product border px-2
                    py-o.5 rounded-2xl border-red-400 text-red-400 delete-product"
                 >
-                  delete
+                  حذف
                 </button>
               </div>
             </div>

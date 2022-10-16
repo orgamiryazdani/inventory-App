@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from 'react-toastify';
 
 const ProductsForm = ({ categories, setProducts, setIsShow }) => {
   const [productsFormData, setProductsFormData] = useState({
@@ -14,8 +15,16 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
 
   const addNewProduct = (e) => {
     e.preventDefault();
+    if (productsFormData.title === '') {
+      toast('لطفا عنوان را وارد کنید');
+      return;
+    }
+    if (productsFormData.quantity === '') {
+      toast('لطفا تعداد را وارد کنید');
+      return;
+    }
     if (productsFormData.categoryId === '') {
-      alert("please select option")
+      toast('لطفا دسته بندی را انتخاب کنید');
       setIsShow(true);
       return;
     }
@@ -26,15 +35,16 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
     };
     setProducts((prevState) => [...prevState, newProduct]);
     setProductsFormData({ title: "", quantity: "", categoryId: "" });
+    toast.success("محصول جدید اضافه شد");
   };
 
   return (
     <div className="mb-6">
-      <h2 className="text-xl text-slate-300 font-bold mb-2">Add New Product</h2>
+      <h2 className="text-xl text-slate-300 font-bold mb-2">افزودن محصول جدید</h2>
       <form className="bg-slate-700 p-4 rounded-xl flex flex-col gap-y-4">
         <div>
           <label htmlFor="product-title" className="block mb-1 text-slate-400">
-            title
+            عنوان
           </label>
           <input
             type="text"
@@ -50,7 +60,7 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
             htmlFor="product-quantity"
             className="block mb-1 text-slate-400"
           >
-            quantity
+            تعداد
           </label>
           <input
             className="bg-transparent rounded-xl border border-slate-500 text-slate-400 w-full md:w-auto"
@@ -67,7 +77,7 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
             htmlFor="product-category"
             className="block mb-1 text-slate-400"
           >
-            category
+            دسته بندی
           </label>
           <select
             name="categoryId"
@@ -77,7 +87,7 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
             className="bg-transparent text-slate-400 rounded-xl w-full"
           >
             <option className="bg-slate-500 text-slate-300" value="">
-              select a category
+              یک دسته بندی را انتخاب کنید
             </option>
             {categories.map((category) => {
               return (
@@ -98,7 +108,7 @@ const ProductsForm = ({ categories, setProducts, setIsShow }) => {
             id="add-new-product"
             className="flex-1 bg-slate-500 text-slate-200 rounded-xl py-2"
           >
-            Add new Product
+            افزودن محصول جدید
           </button>
         </div>
       </form>
